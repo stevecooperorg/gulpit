@@ -2,7 +2,6 @@
  # curl -s https://raw.githubusercontent.com/stevecooperorg/gulpit/master/init | bash
 
  clear
- cd ~/IdeaProjects/foo
  rm package.json
  rm -rf node_modules
  npm init -y
