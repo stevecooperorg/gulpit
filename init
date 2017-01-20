@@ -1,0 +1,17 @@
+ # curl -s file:////Users/steve/IdeaProjects/gulpit/init | bash
+ # curl -s https://raw.githubusercontent.com/stevecooperorg/gulpit/master/init | bash
+
+ clear
+ cd ~/IdeaProjects/foo
+ rm package.json
+ rm -rf node_modules
+ npm init -y
+ npm install gulp --save-dev
+ npm install jshint --save-dev
+ npm install gulp-jshint --save-dev
+ npm install gulp-watch --save-dev
+ npm install jasmine --save-dev
+ npm install gulp-jasmine --save-dev
+ curl https://raw.githubusercontent.com/stevecooperorg/gulpit/master/gulpfile.js > gulpfile.js
+ gulp watch
+ node ./node_modules/gulp/bin/gulp.js watch
