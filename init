@@ -13,11 +13,12 @@ npm install gulp-jshint --save-dev
 npm install gulp-watch --save-dev
 npm install jasmine --save-dev
 npm install gulp-jasmine --save-dev
-curl https://raw.githubusercontent.com/stevecooperorg/gulpit/master/gulpfile.js > gulpfile.js
-curl -s https://raw.githubusercontent.com/stevecooperorg/gulpit/master/message
+curl -s https://raw.githubusercontent.com/stevecooperorg/gulpit/master/gulpfile.js > gulpfile.js
 curl -s https://raw.githubusercontent.com/stevecooperorg/gulpit/master/go > go
 chmod a+x go
 
 clear
+
+curl -s https://raw.githubusercontent.com/stevecooperorg/gulpit/master/message
 
 node ./node_modules/gulp/bin/gulp.js watch
