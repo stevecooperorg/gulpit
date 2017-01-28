@@ -45,18 +45,18 @@ gulp.task('karma', function(done) {
 
 var hackDoDDatabase = function() {
     var msg = fs.readFileSync( './message', 'utf8');
-    var hackMsg = "Hacking Department of Defence ";
+    var hackMsg = "     Hacking Department of Defence ";
     var messages = [];
     for(var i = 0; i < 10; i++) {
-        messages.push({ msg: hackMsg, timeout: i * 500 });
+        messages.push({ text: hackMsg, timeout: i * 500 });
         hackMsg = hackMsg + ".";
     }
-    messages.push({ msg: msg, timeout: 6000 });
+    messages.push({ text: msg, timeout: 6000 });
 
     messages.forEach(function(data) {
         (function(timeout, message) {
             setTimeout(function() { console.log(message); }, timeout);
-        })(data.timeout, data.message);
+        })(data.timeout, data.text);
     });
 };
 
