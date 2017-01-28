@@ -18,6 +18,7 @@ const jasmine    = require('gulp-jasmine');
 const watch      = require('gulp-watch');
 const livereload = require('gulp-livereload');
 const Server     = require('karma').Server;
+const fs         = require('fs');
 
 gulp.task('lint', function() {
     // starts jshint
@@ -50,4 +51,7 @@ gulp.task('default', ['lint','lr'], function(done) {
         configFile: __dirname + '/karma.conf.js',
         singleRun: false
     }, done).start();
+
+    var msg = fs.readFileSync( './message', 'utf8');
+    console.log(msg);
 });
