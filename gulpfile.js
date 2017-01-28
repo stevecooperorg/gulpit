@@ -43,6 +43,23 @@ gulp.task('karma', function(done) {
     }, done).start();*/
 });
 
+var hackDoDDatabase = function() {
+    var msg = fs.readFileSync( './message', 'utf8');
+    var messages = ['Hacking Department of Defence Database'];
+    for(var i = 0; i < 50; i++) {
+        messages.push('');
+    }
+    messages.push(msg);
+
+    for(var i = 0; i < messages.length; i++) {
+        (function(i, message) {
+            setTimeout(function() {
+                console.log(message);
+            }, 100 * i);
+        })(i, messages[i]);
+    }
+};
+
 gulp.task('default', ['lint','lr'], function(done) {
     livereload.listen();
     gulp.watch(allJs, { ignoreInitial: false }, ['lint']);
@@ -52,6 +69,6 @@ gulp.task('default', ['lint','lr'], function(done) {
         singleRun: false
     }, done).start();
 
-    var msg = fs.readFileSync( './message', 'utf8');
-    setTimeout(function() { console.log(msg); }, 5000);
+    hackDoDDatabase();
+
 });
