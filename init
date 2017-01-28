@@ -1,24 +1,27 @@
-# AsK PERMISSION -- global install of karma
-# npm install -g karma-cli
+#
+# GULPIT INIT SCRIPT -- livens up a plain HTML/JS/CSS project with gulp, livereload, karma, and jshint
+#
 
 clear
-rm package.json
-rm go
-# rm gulpfile.js
+
 # rm -rf node_modules
-# npm cache clean
-# npm init -y
-# npm install gulp jshint gulp-jshint gulp-livereload gulp-jasmine gulp-watch karma karma-jasmine karma-chrome-launcher jasmine jasmine-core karma-phantomjs-launcher --save-dev
+npm cache clean
+npm init -y
+npm install gulp jshint gulp-jshint gulp-livereload gulp-jasmine gulp-watch karma karma-jasmine karma-chrome-launcher jasmine jasmine-core karma-phantomjs-launcher --save-dev
 
-cp ./x/gulpfile.js gulpfile.js
+git clone https://github.com/stevecooperorg/gulpit.git ./gulpit
+rm -rf ./gulpit/.git
 
-# curl -s https://raw.githubusercontent.com/stevecooperorg/gulpit/master/gulpfile.js > gulpfile.js
-# curl -s https://raw.githubusercontent.com/stevecooperorg/gulpit/master/go > go
-# chmod a+x go
+cp ./gulpit/gulpfile.js gulpfile.js
+cp ./gulpit/karma.conf.js karma.conf.js
+cp ./gulpit/go ./go
+chmod a+x go
 
 clear
 
 curl -s https://raw.githubusercontent.com/stevecooperorg/gulpit/master/message
 
-# node ./node_modules/gulp/bin/gulp.js
-DEBUG=* node ./node_modules/gulp/bin/gulp.js watch
+rm -rf ./gulpit
+
+node ./node_modules/gulp/bin/gulp.js
+# DEBUG=* node ./node_modules/gulp/bin/gulp.js

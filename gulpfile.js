@@ -1,15 +1,15 @@
 var src = ['index.js', "src/**.js"];
 var specs = ["spec/*.js"];
-var allJs = src.concat(specs);
+var allJs = src.concat(specs).concat(["!./node_modules/**"]);
 var allFiles = allJs.concat(['**/*.html', '**/*.css']);
 
 // DONE
 // lint code singly.
 // get jslint to work when the code changes.
-
-// TODO
 // get livereload server started
 // pipe changes to livereload -- js, html, css
+
+// TODO
 // get karma to work
 
 const gulp       = require('gulp');
@@ -17,6 +17,7 @@ const jshint     = require('gulp-jshint');
 const jasmine    = require('gulp-jasmine');
 const watch      = require('gulp-watch');
 const livereload = require('gulp-livereload');
+const Server     = require('karma').Server;
 
 gulp.task('lint', function() {
     // starts jshint
@@ -34,13 +35,19 @@ gulp.task('lr', function() {
         .pipe(livereload());
 });
 
-gulp.task('default', ['lint']);
+gulp.task('karma', function(done) {
+    /*new Server({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: false
+    }, done).start();*/
+});
 
-gulp.task('watch', function() {
-    // start a livereload server;
+gulp.task('default', ['lint','lr'], function(done) {
     livereload.listen();
-    // when JS changes, rerun linting
     gulp.watch(allJs, { ignoreInitial: false }, ['lint']);
-    // on any content file, kick off livereload
     gulp.watch(allFiles, { ignoreInitial: false }, ['lr']);
+    new Server({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: false
+    }, done).start();
 });
