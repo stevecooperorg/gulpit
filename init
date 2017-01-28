@@ -4,13 +4,13 @@
 
 clear
 
-#rm -rf node_modules
+# rm -rf node_modules
 # npm cache clean
-#npm init -y
-#npm install gulp jshint gulp-jshint gulp-livereload gulp-jasmine gulp-watch karma karma-jasmine karma-chrome-launcher jasmine jasmine-core --save-dev
+npm init -y
+npm install gulp jshint gulp-jshint gulp-livereload gulp-jasmine gulp-watch karma karma-jasmine karma-chrome-launcher jasmine jasmine-core --save-dev
 
-# git clone https://github.com/stevecooperorg/gulpit.git ./gulpit
-git clone ../gulpit ./gulpit
+git clone https://github.com/stevecooperorg/gulpit.git ./gulpit
+# git clone ../gulpit ./gulpit
 cp ./gulpit/gulpfile.js gulpfile.js
 cp ./gulpit/karma.conf.js karma.conf.js
 cp ./gulpit/go ./go
