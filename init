@@ -21,6 +21,6 @@ clear
 
 rm -rf ./gulpit
 
-node ./node_modules/gulp/bin/gulp.js swordfish
+node ./node_modules/gulp/bin/gulp.js sf
 node ./node_modules/gulp/bin/gulp.js
 # DEBUG=* node ./node_modules/gulp/bin/gulp.js

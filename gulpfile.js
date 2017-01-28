@@ -56,6 +56,9 @@ var hackDoDDatabase = function() {
     next += 750;
     messages.push({ text: msg, timeout: next  });
 
+    next = 10000;
+    messages.push({ text: "", timeout: next  });
+
     messages.forEach(function(data) {
         (function(timeout, message) {
             setTimeout(function() { console.log(message); }, timeout);
@@ -63,7 +66,7 @@ var hackDoDDatabase = function() {
     });
 };
 
-gulp.task('swordfish', function() {
+gulp.task('sf', function() {
     hackDoDDatabase();
 });
 
