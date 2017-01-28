@@ -7,7 +7,7 @@ clear
 # rm -rf node_modules
 npm cache clean
 npm init -y
-npm install gulp jshint gulp-jshint gulp-livereload gulp-jasmine gulp-watch karma karma-jasmine karma-chrome-launcher jasmine jasmine-core karma-phantomjs-launcher --save-dev
+npm install gulp jshint gulp-jshint gulp-livereload gulp-jasmine gulp-watch karma karma-jasmine karma-chrome-launcher jasmine jasmine-core --save-dev
 
 git clone https://github.com/stevecooperorg/gulpit.git ./gulpit
 rm -rf ./gulpit/.git
