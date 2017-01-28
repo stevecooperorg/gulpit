@@ -19,7 +19,7 @@ chmod a+x go
 
 clear
 
-curl -s https://raw.githubusercontent.com/stevecooperorg/gulpit/master/message
+cat ./gulpit/message
 
 rm -rf ./gulpit
 
