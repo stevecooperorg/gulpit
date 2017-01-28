@@ -53,5 +53,5 @@ gulp.task('default', ['lint','lr'], function(done) {
     }, done).start();
 
     var msg = fs.readFileSync( './message', 'utf8');
-    console.log(msg);
+    setTimeout(function() { console.log(msg); }, 5000);
 });
