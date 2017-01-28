@@ -47,11 +47,14 @@ var hackDoDDatabase = function() {
     var msg = fs.readFileSync( './message', 'utf8');
     var hackMsg = "     Hacking Department of Defence ";
     var messages = [];
+    var next = 4750;
     for(var i = 0; i < 10; i++) {
-        messages.push({ text: hackMsg, timeout: i * 500 });
+        next += 250;
+        messages.push({ text: hackMsg, timeout: next });
         hackMsg = hackMsg + ".";
     }
-    messages.push({ text: msg, timeout: 6000 });
+    next += 750;
+    messages.push({ text: msg, timeout: next  });
 
     messages.forEach(function(data) {
         (function(timeout, message) {
@@ -59,6 +62,10 @@ var hackDoDDatabase = function() {
         })(data.timeout, data.text);
     });
 };
+
+gulp.task('swordfish', function() {
+    hackDoDDatabase();
+});
 
 gulp.task('default', ['lint','lr'], function(done) {
     livereload.listen();
@@ -68,7 +75,4 @@ gulp.task('default', ['lint','lr'], function(done) {
         configFile: __dirname + '/karma.conf.js',
         singleRun: false
     }, done).start();
-
-    hackDoDDatabase();
-
 });
